@@ -15,7 +15,7 @@ def cargarArchivo():
         
 def procesarArchivo():
     global terr
-    
+    lista_terr=lista_terreno()
     archivo= str(path)
     mydoc = minidom.parse(archivo)
     terrenos = mydoc.getElementsByTagName('TERRENO')
@@ -33,13 +33,11 @@ def procesarArchivo():
         for dimen in dimension:
             fila=dimen.getElementsByTagName('m')[0].firstChild.data
             columna=dimen.getElementsByTagName('n')[0].firstChild.data
-        xPosI=e.getElementsByTagName('x')[0].firstChild.data
-        yPosI=e.getElementsByTagName('y')[0].firstChild.data
-        xPosF=e.getElementsByTagName('x')[0].firstChild.data
-        yPosF=e.getElementsByTagName('y')[0].firstChild.data
-            
-        
-        print(nombre,fila,columna,xPosI,yPosI,xPosF,yPosF)
+        # xPosI=e.getElementsByTagName('x')[0].firstChild.data
+        # yPosI=e.getElementsByTagName('y')[0].firstChild.data
+        # xPosF=e.getElementsByTagName('x')[0].firstChild.data
+        # yPosF=e.getElementsByTagName('y')[0].firstChild.data
+        #print(nombre,fila,columna,xPosI,yPosI,xPosF,yPosF)
         # for dim in dimension:
         #     fila=mydoc.getElementsByTagName('m')
         #     columna=mydoc.getElementsByTagName('n')
@@ -54,9 +52,8 @@ def procesarArchivo():
         for posF in posicionFinal:
             xPosF=posF.getElementsByTagName('x')[0].firstChild.data
             yPosF=posF.getElementsByTagName('y')[0].firstChild.data
-        
+        #print(nombre,fila,columna,xPosI,yPosI,xPosF,yPosF)
         terr=terreno(nombre,fila,columna,xPosI,yPosI,xPosF,yPosF)
-        lista_terr=lista_terreno()
         lista_terr.insertar(terr)
     #print(nombre,fila,columna,xPosI,yPosI,xPosF,yPosF)
     lista_terr.recorrer()
