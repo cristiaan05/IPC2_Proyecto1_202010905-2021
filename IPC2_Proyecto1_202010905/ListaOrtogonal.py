@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self,data=None):
         self.data = data
@@ -10,15 +11,16 @@ class lista_ortogonal:
     def __init__(self):
         self.head = None
 
-    def create(self,n,m):
+    def create(self,lista,n,m):
         p = None
         q = None
         r = None
         for i in range(n):
             
             for j in range(m):
+                # lista.posiciones
+                # p = input('Inserte dato') # actual"
                 
-                p = input('Inserte dato') # actual"
                 print(p)
                 p = Node(p) 
                 p.next = None
@@ -61,6 +63,6 @@ class lista_ortogonal:
 
 prueba = lista_ortogonal()
 
-prueba.create(2,2)
+# prueba.create(2,2)
 
-prueba.mostrar()
+# prueba.mostrar()

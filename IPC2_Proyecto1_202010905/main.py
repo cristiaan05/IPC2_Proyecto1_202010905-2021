@@ -1,5 +1,6 @@
 from xml.dom import minidom
 from Terreno import terreno,lista_terreno
+from ListaOrtogonal import lista_ortogonal
 from Posiciones import Posiciones
 
 def cargarArchivo():
@@ -20,7 +21,7 @@ def procesarArchivo():
     lista_terr=lista_terreno()
     archivo= str(path)
     mydoc = minidom.parse(archivo)
-    terrenos = mydoc.getElementsByTagName('TERRENO')
+    terrenos = mydoc.getElementsByTagName('terreno')
     # dim=mydoc.getElementsByTagName('m')
     # print('Valor de Atributos de elementos:')
     # print(items[0].attributes['name'].value)
@@ -29,7 +30,7 @@ def procesarArchivo():
     for e in terrenos:
         nombre=e.attributes["nombre"].value
         # dimension=dim.attributes["DIMENSION"].value
-        dimension=e.getElementsByTagName('DIMENSION')
+        dimension=e.getElementsByTagName('dimension')
         posicionInicial=e.getElementsByTagName('posicioninicio')
         posicionFinal=e.getElementsByTagName('posicionfin')
         posiciones=e.getElementsByTagName('posicion')
@@ -118,8 +119,10 @@ if __name__ == '__main__':
             terrenoBuscar=input()
             terreno=lista_terr.buscar(terrenoBuscar)
             # print(terreno)
-            posicionesGrafica=terreno.posiciones.getPosiciones()
-            Posiciones.generarGraphviz(posicionesGrafica,terrenoBuscar,terreno.filas,terreno.columnas)
+            #posicionesGrafica=terreno.posiciones.getPosiciones()
+            matriz=lista_ortogonal()
+            # matriz.create(terrenoBuscar)
+            Posiciones.generarGraphviz(matriz,terrenoBuscar,terreno.filas,terreno.columnas)
             inicio()
         elif opcion=="6":
             exit()

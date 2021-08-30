@@ -28,14 +28,14 @@ class Posiciones:
             self.fin=nuevo
         return nuevo
             
-    def getPosiciones(self):
-        actual=self.inicio
-        while actual is not None: 
-            print('x: ',actual.x,'y: ',actual.y,'Combustible: ',actual.cantidad)
-            actual=actual.siguiente
+    # def getPosiciones(self):
+    #     actual=self.inicio
+    #     while actual is not None:
+    #         print('x: ',actual.x,'y: ',actual.y,'Combustible: ',actual.cantidad)
+    #         actual=actual.siguiente
     
     def generarGraphviz(posiciones,nombre,m,n):
-        print("filas",m)
+        print("posiciones",posiciones)
         m=int(m)+1
         n=int(n)+1
         x="hola"
@@ -172,4 +172,3 @@ class Posiciones:
     
     # def insertarPosicion(self,x,y,cantidad):
     # nuevo=Posi
-        
